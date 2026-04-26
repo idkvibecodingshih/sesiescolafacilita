@@ -13,40 +13,39 @@ class IA:
             base_url=base_url,
             api_key=api_key
         )
-        self.memoria = [
-    {
-        "role": "system",
-        "content": """
-"""
-    }
-]
-        
 
+        self.memoria = [
+            {
+                "role": "system",
+                "content": "Você é Allen, um assistente escolar útil e direto."
+            }
+        ]
 
     def call(self, pergunta: str):
+        try:
+            self.memoria.append({
+                "role": "user",
+                "content": pergunta
+            })
 
-        # adiciona pergunta
-        self.memoria.append({
-            "role": "user",
-            "content": pergunta
-        })
+            response = self.client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                temperature=0,
+                messages=self.memoria
+            )
 
-        response = self.client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            temperature=0,
-            messages=self.memoria
-        )
+            resposta = response.choices[0].message.content
 
-        resposta = response.choices[0].message.content
-        self.adicionar_memoria_personalidade(pergunta, resposta)
+            self.memoria.append({
+                "role": "assistant",
+                "content": resposta
+            })
 
-        # adiciona resposta
-        self.memoria.append({
-            "role": "assistant",
-            "content": resposta
-        })
+            return resposta
 
-        return resposta
+        except Exception as e:
+            print("ERRO NA IA:", e)
+            return "Erro ao processar a resposta da IA."
 
 
 
