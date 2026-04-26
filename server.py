@@ -46,7 +46,7 @@ class IA:
             "content": resposta
         })
 
-        return self.format(resposta)
+        return resposta
 
 
 
