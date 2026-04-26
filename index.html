@@ -1,162 +1,342 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programa Escola Facilita - SESI</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Escola Facilita • SESI</title>
+
+<style>
+:root{
+  --blue:#3b82f6;
+  --blue-dark:#1d4ed8;
+  --soft:#eef5ff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --bg:#f7fbff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, sans-serif;}
+
+body{background:var(--bg);color:var(--text);}
+
+/* HEADER */
+header{
+  position:sticky;top:0;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.8);
+  border-bottom:1px solid #e5efff;
+}
+
+nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+}
+
+.logo{
+  display:flex;gap:10px;align-items:center;
+  font-weight:800;color:var(--blue-dark);
+}
+
+.logo div{
+  width:38px;height:38px;
+  background:linear-gradient(135deg,var(--blue),#7dd3fc);
+  border-radius:12px;
+  display:grid;place-items:center;
+  color:#fff;font-weight:900;
+}
+
+nav a{
+  margin-left:18px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+}
+
+nav a:hover{color:var(--blue);}
+
+/* HERO */
+.hero{
+  max-width:1100px;margin:auto;
+  padding:80px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:14px;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:600px;margin:auto;
+}
+
+.hero button{
+  margin-top:25px;
+  padding:14px 22px;
+  border:none;
+  background:var(--blue);
+  color:#fff;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.hero button:hover{background:var(--blue-dark);}
+
+/* PROJETOS */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 15px 35px rgba(59,130,246,.1);
+  transition:.2s;
+}
+
+.card:hover{transform:translateY(-4px);}
+
+.card h3{margin-bottom:8px;color:var(--blue-dark);}
+.card p{color:var(--muted);font-size:14px;}
+
+.card a{
+  display:inline-block;
+  margin-top:12px;
+  text-decoration:none;
+  color:#fff;
+  background:var(--blue);
+  padding:10px 14px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+.card a:hover{background:var(--blue-dark);}
+
+/* CHAT */
+.chat{
+  max-width:600px;
+  margin:50px auto;
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+
+.chat-header{
+  background:linear-gradient(135deg,var(--blue),#7dd3fc);
+  color:#fff;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.chat-header div{
+  width:40px;height:40px;
+  background:#fff;
+  color:var(--blue-dark);
+  display:grid;place-items:center;
+  border-radius:10px;
+  font-weight:900;
+}
+
+.messages{
+  height:300px;
+  overflow-y:auto;
+  padding:15px;
+  background:var(--soft);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.msg{
+  padding:10px 14px;
+  border-radius:14px;
+  max-width:80%;
+}
+
+.bot{
+  background:#fff;
+  align-self:flex-start;
+}
+
+.user{
+  background:var(--blue);
+  color:#fff;
+  align-self:flex-end;
+}
+
+.chat-form{
+  display:flex;
+  padding:10px;
+  gap:10px;
+}
+
+.chat-form input{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #dbeafe;
+}
+
+.chat-form button{
+  padding:12px 16px;
+  border:none;
+  background:var(--blue);
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+}
+</style>
 </head>
+
 <body>
 
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo">
-        <div class="logo-icon">S</div>
-        <span>Escola Facilita</span>
+<header>
+<nav>
+  <div class="logo">
+    <div>S</div>
+    Escola Facilita
+  </div>
+
+  <div>
+    <a href="#projetos">Projetos</a>
+    <a href="#chat">Allen IA</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Envie e organize seus projetos escolares</h1>
+  <p>Uma forma simples e moderna de compartilhar atividades e trabalhos do SESI.</p>
+</section>
+
+<section id="projetos" class="section">
+  <h2>Projetos recentes</h2>
+
+  <div class="projects">
+
+    <!-- 🔥 HARD CODED -->
+    <div class="card">
+      <h3>Projeto de Ciências</h3>
+      <p>Aluno: João • 1º Ano B</p>
+      <a href="https://canva.link/9zlvchiyxrypdxt" target="_blank">Abrir Canva</a>
+    </div>
+
+    <div class="card">
+      <h3>Apresentação História</h3>
+      <p>Aluno: Maria • 2º Ano A</p>
+      <a href="https://canva.com/" target="_blank">Abrir Canva</a>
+    </div>
+
+    <div class="card">
+      <h3>Trabalho de Matemática</h3>
+      <p>Aluno: Lucas • 1º Ano C</p>
+      <a href="https://canva.com/" target="_blank">Abrir Canva</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="chat" class="section">
+  <h2 style="text-align:center;">Allen IA</h2>
+
+  <div class="chat">
+    <div class="chat-header">
+      <div>A</div>
+      <div>
+        <strong>Allen</strong><br>
+        Assistente escolar
       </div>
+    </div>
 
-      <div class="nav-links">
-        <a href="#inicio">Início</a>
-        <a href="#upload">Enviar atividade</a>
-        <a href="#allen">Allen IA</a>
-      </div>
-    </nav>
-  </header>
+    <div id="messages" class="messages">
+      <div class="msg bot">Olá! Posso te ajudar com estudos e projetos.</div>
+    </div>
 
-  <main>
-    <section id="inicio" class="hero">
-      <div class="hero-content">
-        <span class="badge">Programa Escola Facilita • SESI</span>
-        <h1>Envie suas atividades e projetos de forma simples.</h1>
-        <p>
-          Uma plataforma leve, moderna e prática para alunos organizarem,
-          identificarem e enviarem suas atividades escolares com mais facilidade.
-        </p>
+    <form id="chatForm" class="chat-form">
+      <input id="input" placeholder="Pergunte algo..." />
+      <button>Enviar</button>
+    </form>
+  </div>
+</section>
 
-        <div class="hero-buttons">
-          <a href="#upload" class="btn primary">Enviar atividade</a>
-          <a href="#allen" class="btn secondary">Falar com Allen</a>
-        </div>
-      </div>
+<footer>
+Programa Escola Facilita • SESI
+</footer>
 
-      <div class="hero-card">
-        <h3>Resumo rápido</h3>
-        <div class="stat">
-          <span>Login obrigatório</span>
-          <strong>Não</strong>
-        </div>
-        <div class="stat">
-          <span>Identificação simples</span>
-          <strong>Sim</strong>
-        </div>
-        <div class="stat">
-          <span>Assistente IA</span>
-          <strong>Allen</strong>
-        </div>
-      </div>
-    </section>
+<script>
+const API = "https://sesiescolafacilita.onrender.com/api/chat";
 
-    <section id="upload" class="section">
-      <div class="section-title">
-        <span>Área do aluno</span>
-        <h2>Enviar atividade ou projeto</h2>
-        <p>
-          Preencha seus dados básicos para que a escola consiga identificar o envio corretamente.
-        </p>
-      </div>
+const form = document.getElementById("chatForm");
+const input = document.getElementById("input");
+const messages = document.getElementById("messages");
 
-      <div class="upload-container">
-        <form id="uploadForm" class="upload-form">
-          <div class="form-grid">
-            <div class="input-group">
-              <label>Nome do aluno</label>
-              <input type="text" id="studentName" placeholder="Ex: João Silva" required />
-            </div>
+form.addEventListener("submit", async e=>{
+  e.preventDefault();
 
-            <div class="input-group">
-              <label>Turma</label>
-              <input type="text" id="studentClass" placeholder="Ex: 1º Ano B" required />
-            </div>
+  const text = input.value.trim();
+  if(!text) return;
 
-            <div class="input-group">
-              <label>Professor(a)</label>
-              <input type="text" id="teacherName" placeholder="Ex: Prof. Ana" required />
-            </div>
+  add(text,"user");
+  input.value="";
 
-            <div class="input-group">
-              <label>Matéria</label>
-              <input type="text" id="subject" placeholder="Ex: Matemática" required />
-            </div>
-          </div>
+  const loading = add("Pensando...","bot");
 
-          <div class="input-group">
-            <label>Título da atividade/projeto</label>
-            <input type="text" id="activityTitle" placeholder="Ex: Projeto de Ciências" required />
-          </div>
+  try{
+    const res = await fetch(API,{
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body:JSON.stringify({ question:text })
+    });
 
-          <div class="input-group">
-            <label>Descrição</label>
-            <textarea id="description" placeholder="Explique rapidamente o que está sendo enviado..." required></textarea>
-          </div>
+    const data = await res.json();
+    loading.remove();
 
-          <div class="file-box" id="fileBox">
-            <input type="file" id="fileInput" hidden />
-            <div class="file-content">
-              <div class="file-icon">⬆</div>
-              <h3>Clique para selecionar um arquivo</h3>
-              <p>PDF, DOCX, PPTX, imagens ou arquivos compactados</p>
-              <span id="fileName">Nenhum arquivo selecionado</span>
-            </div>
-          </div>
+    add(data.message || "Erro.","bot");
 
-          <button type="submit" class="btn primary full">Registrar envio</button>
-        </form>
+  }catch{
+    loading.remove();
+    add("Erro ao conectar com o servidor.","bot");
+  }
+});
 
-        <aside class="send-list">
-          <h3>Envios registrados</h3>
-          <div id="submissionsList" class="submissions-list">
-            <p class="empty">Nenhum envio registrado ainda.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
+function add(text,type){
+  const div=document.createElement("div");
+  div.className="msg "+type;
+  div.textContent=text;
+  messages.appendChild(div);
+  messages.scrollTop=messages.scrollHeight;
+  return div;
+}
+</script>
 
-    <section id="allen" class="section chat-section">
-      <div class="section-title">
-        <span>Assistente inteligente</span>
-        <h2>Allen IA</h2>
-        <p>
-          Tire dúvidas sobre atividades, organização, estudos, projetos e ideias escolares.
-        </p>
-      </div>
-
-      <div class="chatbot">
-        <div class="chat-header">
-          <div class="allen-avatar">A</div>
-          <div>
-            <h3>Allen</h3>
-            <p>Assistente IA do Escola Facilita</p>
-          </div>
-        </div>
-
-        <div id="chatMessages" class="chat-messages">
-          <div class="message bot">
-            Olá! Eu sou o Allen. Posso te ajudar com atividades, projetos, explicações e organização dos estudos.
-          </div>
-        </div>
-
-        <form id="chatForm" class="chat-form">
-          <input type="text" id="chatInput" placeholder="Digite sua pergunta..." autocomplete="off" required />
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>Programa Escola Facilita • SESI</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
