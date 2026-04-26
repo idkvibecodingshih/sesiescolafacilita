@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programa Escola Facilita - SESI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <div class="logo-icon">S</div>
+        <span>Escola Facilita</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#inicio">Início</a>
+        <a href="#upload">Enviar atividade</a>
+        <a href="#allen">Allen IA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <span class="badge">Programa Escola Facilita • SESI</span>
+        <h1>Envie suas atividades e projetos de forma simples.</h1>
+        <p>
+          Uma plataforma leve, moderna e prática para alunos organizarem,
+          identificarem e enviarem suas atividades escolares com mais facilidade.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#upload" class="btn primary">Enviar atividade</a>
+          <a href="#allen" class="btn secondary">Falar com Allen</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Resumo rápido</h3>
+        <div class="stat">
+          <span>Login obrigatório</span>
+          <strong>Não</strong>
+        </div>
+        <div class="stat">
+          <span>Identificação simples</span>
+          <strong>Sim</strong>
+        </div>
+        <div class="stat">
+          <span>Assistente IA</span>
+          <strong>Allen</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="upload" class="section">
+      <div class="section-title">
+        <span>Área do aluno</span>
+        <h2>Enviar atividade ou projeto</h2>
+        <p>
+          Preencha seus dados básicos para que a escola consiga identificar o envio corretamente.
+        </p>
+      </div>
+
+      <div class="upload-container">
+        <form id="uploadForm" class="upload-form">
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Nome do aluno</label>
+              <input type="text" id="studentName" placeholder="Ex: João Silva" required />
+            </div>
+
+            <div class="input-group">
+              <label>Turma</label>
+              <input type="text" id="studentClass" placeholder="Ex: 1º Ano B" required />
+            </div>
+
+            <div class="input-group">
+              <label>Professor(a)</label>
+              <input type="text" id="teacherName" placeholder="Ex: Prof. Ana" required />
+            </div>
+
+            <div class="input-group">
+              <label>Matéria</label>
+              <input type="text" id="subject" placeholder="Ex: Matemática" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Título da atividade/projeto</label>
+            <input type="text" id="activityTitle" placeholder="Ex: Projeto de Ciências" required />
+          </div>
+
+          <div class="input-group">
+            <label>Descrição</label>
+            <textarea id="description" placeholder="Explique rapidamente o que está sendo enviado..." required></textarea>
+          </div>
+
+          <div class="file-box" id="fileBox">
+            <input type="file" id="fileInput" hidden />
+            <div class="file-content">
+              <div class="file-icon">⬆</div>
+              <h3>Clique para selecionar um arquivo</h3>
+              <p>PDF, DOCX, PPTX, imagens ou arquivos compactados</p>
+              <span id="fileName">Nenhum arquivo selecionado</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn primary full">Registrar envio</button>
+        </form>
+
+        <aside class="send-list">
+          <h3>Envios registrados</h3>
+          <div id="submissionsList" class="submissions-list">
+            <p class="empty">Nenhum envio registrado ainda.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="allen" class="section chat-section">
+      <div class="section-title">
+        <span>Assistente inteligente</span>
+        <h2>Allen IA</h2>
+        <p>
+          Tire dúvidas sobre atividades, organização, estudos, projetos e ideias escolares.
+        </p>
+      </div>
+
+      <div class="chatbot">
+        <div class="chat-header">
+          <div class="allen-avatar">A</div>
+          <div>
+            <h3>Allen</h3>
+            <p>Assistente IA do Escola Facilita</p>
+          </div>
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+          <div class="message bot">
+            Olá! Eu sou o Allen. Posso te ajudar com atividades, projetos, explicações e organização dos estudos.
+          </div>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+          <input type="text" id="chatInput" placeholder="Digite sua pergunta..." autocomplete="off" required />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Programa Escola Facilita • SESI</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
